@@ -1,0 +1,66 @@
+The calculated fields are used to "project" the shot locations from a 200 by 85 surface that is perfectly rectangle, to a 3D view trapezoid shape.
+The calculations are based specifically on measurements that apply to the two images I use for background (will be added to wiki).
+
+TrapezoidY (used for the Columns)
+  IF  [Coordinates/X] <= -89 THEN [Coordinates/Y]
+  ELSEIF  [Coordinates/X]<= -79 THEN [Coordinates/Y] * 0.9243
+  ELSEIF  [Coordinates/X]<= -69 THEN [Coordinates/Y] * 0.8487
+  ELSEIF  [Coordinates/X]<= -47 THEN [Coordinates/Y] * 0.8487
+  ELSEIF  [Coordinates/X]<= -25 THEN [Coordinates/Y] * 0.7434
+  ELSEIF  [Coordinates/X]<= -12.5 THEN [Coordinates/Y] * 0.6382
+  ELSEIF  [Coordinates/X]<= 0 THEN [Coordinates/Y] * 0.5987
+  ELSEIF  [Coordinates/X]<= 12.5 THEN [Coordinates/Y] * 0.5592
+  ELSEIF  [Coordinates/X]<= 25 THEN [Coordinates/Y] * 0.5263
+  ELSEIF  [Coordinates/X]<= 47 THEN [Coordinates/Y] * 0.4934
+  ELSEIF  [Coordinates/X]<= 69 THEN [Coordinates/Y] * 0.4539
+  ELSEIF  [Coordinates/X]<= 79 THEN [Coordinates/Y] * 0.4145
+  ELSEIF  [Coordinates/X]<= 89 THEN [Coordinates/Y] * 0.3980
+  ELSE [Coordinates/Y] * 0.38
+  END
+  
+TrapezoidX step 1 % on rink (used for next field)
+  ([Coordinates/X] +100)/200
+  
+TrapezoidX step2 (used on Rows)
+  IF  [TrapezoidX step 1 % on rink] <= 0.025 THEN (0.0753424657534247* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.05 THEN (0.146464646464646* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.075 THEN (0.201111111111111* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.1 THEN (0.251111111111111* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.125 THEN (0.301111111111111* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.15 THEN (0.351111111111111* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.175 THEN (0.386363636363636* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.2 THEN (0.417929292929293* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.225 THEN (0.44949494949495* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.25 THEN (0.481060606060606* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.275 THEN (0.512626262626263* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.3 THEN (0.544191919191919* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.325 THEN (0.575757575757576* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.35 THEN (0.607323232323232* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.375 THEN (0.638888888888889* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.4 THEN (0.662222222222222* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.425 THEN (0.685555555555556* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.45 THEN (0.708888888888889* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.475 THEN (0.732222222222222* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.5 THEN (0.755555555555555* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.525 THEN (0.772222222222222* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.55 THEN (0.788888888888889* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.575 THEN (0.805555555555556* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.6 THEN (0.822222222222222* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.625 THEN (0.838888888888889* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.65 THEN (0.850883838383839* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.675 THEN (0.862878787878788* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.7 THEN (0.874873737373738* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.725 THEN (0.886868686868687* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.75 THEN (0.898863636363637* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.775 THEN (0.910858585858586* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.8 THEN (0.922853535353535* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.825 THEN (0.934848484848485* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.85 THEN (0.946388888888889* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.875 THEN (0.956111111111111* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.9 THEN (0.965833333333333* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.925 THEN (0.975555555555556* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.95 THEN (0.984848484848485* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 0.975 THEN (0.992424242424242* 200) - 100
+  ELSEIF  [TrapezoidX step 1 % on rink] <= 1 THEN (1* 200) - 100
+  ELSE 0
+  END
