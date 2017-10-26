@@ -1,0 +1,16 @@
+For the top down 2D view, I use Rink
+  Coordinates/X
+    Left -100
+    Right 100
+  Coordinates/Y
+    Bottom -42
+    Top 42
+    
+For the 3D view I use ...
+  TrapezoidY
+    Left -42
+    Right 42
+  TrapezoidX step2
+    Bottom -100
+    Top 108
+      
