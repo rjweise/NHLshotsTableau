@@ -1,0 +1,34 @@
+Assumptions
+- source file for shot locations is based on X (-100, 100) and Y (-42.5, 42.5)
+- 3D image file used for over lay is ... <fill out>
+- the following "code" is written for calcualted fields in Tableau
+***********************************************
+
+//Y is relaitvely straightforward, but will still need some adjustment:
+//Top Right corner
+IF [Y] >= 0 AND [X] >= 0 THEN
+[Y] * 0.74 + ([X]/100 * -0.26 * [Y] ) 
+
+//Bottom Right corner
+ELSEIF [Y] >= 0 AND [X] < 0 THEN
+([Y] * 0.74 + (-[X]/100 * 0.74 * [Y])) 
+
+//Bottom Left corner
+ELSEIF [Y] < 0 AND [X] < 0 THEN
+([Y] * 0.74 - ([X]/100 * 0.74 * [Y])) //* -1
+
+//Top left corner
+ELSEIF [Y] < 0 AND [X] >= 0 THEN
+([Y] * 0.74 + ([X]/100 * -0.26 * [Y])) //* -1
+END
+
+***********************************************
+
+Coord% is created to convert the -100, 100 to percentage X (0, 100):
+([X]+100)/2
+
+CalcImg% is created to convert the image used (to be filled out later) to percentage as well, with exponential formula created by looking for x/y coordinates known for both the dataset and the image
+(0.0001*([Coord%]^3)) + (-0.025*([Coord%]^2)) + (2.5*([Coord%])) + 0
+
+The above is then used to convert the actual X values based on the max height of the rink in the image (here 20.5 cm)
+20.5 * [CalcImg%] / 100
