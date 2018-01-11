@@ -1,4 +1,4 @@
-NHL shot locations in 3D
+# NHL shot locations in 3D
 
 Showing NHL shot locations in a more appealing and revealing way, using calculations that automatically convert the data from the NHL API to the 3D perspective
 
@@ -6,7 +6,7 @@ Example:
 
 ![image alt text](image_0.png)
 
-# Let’s start with that we know
+## Let’s start with that we know
 
 ### Data
 
@@ -24,7 +24,7 @@ Purple = image dimensions along length
 
 Green = image dimensions along width
 
-# Process
+## Process
 
 To keep things manageable, and because they require a different approach, I worked on the X’s (length of the ice) and Y’s (width of the ice) separately.
 
@@ -156,7 +156,7 @@ So over 200 ft of actual length, the width needs to be reduced from 0% at the bo
 
 We can draw a pretty well fitting line through here (R-squared = 0.998692) using -0.610731*XImage% + 100.317 and after some juggling and realizing that my ruler-on-the-screen measurements may not have been exactly accurate, I adjusted the formula to (-0.72*[XImage%] + 105).
 
-# That’s an awful long story, but what do we have now?
+## That’s an awful long story, but what do we have now?
 
 With the provide formulae, any NHL API shot location can be shown in a more visually appealing 3D format in Tableau:
 
