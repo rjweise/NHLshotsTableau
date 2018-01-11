@@ -96,13 +96,13 @@ Assuming the bottom is 0 ft and the top is 200 ft, I can easily calculate the % 
 
 ![image alt text](image_2.png)
 
-Formula in Excel: =0.0000999252*C9^3 + -0.025*C9^2 + 2.5*C9 + 0 (C9 holds the rink dimension % value)
+Formula in Excel: =0.0000999252 * C9^3 + -0.025 * C9^2 + 2.5 * C9 + 0 (C9 holds the rink dimension % value)
 
 In Tableau I can create the rink dimension % value like this: ([X]+100)/2
 
 And then the Image% value uses the formulae like this:
 
-(0.0001*([Coord%]^3)) + (-0.025*([Coord%]^2)) + (2.5*([Coord%])) + 0
+(0.0001 * ([Coord%]^3)) + (-0.025 * ([Coord%]^2)) + (2.5 * ([Coord%])) + 0
 
 If I now take shots from the 2016 season for example, using this formula in the calculated field I get this:
 
@@ -154,7 +154,7 @@ So over 200 ft of actual length, the width needs to be reduced from 0% at the bo
 
 ![image alt text](image_5.png)
 
-We can draw a pretty well fitting line through here (R-squared = 0.998692) using -0.610731*XImage% + 100.317 and after some juggling and realizing that my ruler-on-the-screen measurements may not have been exactly accurate, I adjusted the formula to (-0.72*[XImage%] + 105).
+We can draw a pretty well fitting line through here (R-squared = 0.998692) using -0.610731 * XImage% + 100.317 and after some juggling and realizing that my ruler-on-the-screen measurements may not have been exactly accurate, I adjusted the formula to (-0.72 * [XImage%] + 105).
 
 ## That’s an awful long story, but what do we have now?
 
@@ -164,9 +164,9 @@ With the provide formulae, any NHL API shot location can be shown in a more visu
 
 * Create a calculated field called XCoord% to convert the X value to a percentage along the length of the ice, with: ([X]+100)/2
 
-* Create a calculated field called XCalcImg% to convert the CoordX% value to projected value to match the 3D image, with: (0.0001*([Coord%]^3)) + (-0.025*([Coord%]^2)) + (2.5*([Coord%])) + 0
+* Create a calculated field called XCalcImg% to convert the CoordX% value to projected value to match the 3D image, with: (0.0001 * ([Coord%]^3)) + (-0.025 * ([Coord%]^2)) + (2.5 * ([Coord%])) + 0
 
-* Create a calculated field called Ycalc to scale the Y value to the image, with: (-0.72*[CalcImg%] + 105)/100 * [Y]
+* Create a calculated field called Ycalc to scale the Y value to the image, with: (-0.72 * [CalcImg%] + 105)/100 * [Y]
 
 * Show the shot locations in 3D:
 
