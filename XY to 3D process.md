@@ -1,6 +1,6 @@
 # NHL shot locations in 3D
 
-Showing NHL shot locations in a more appealing and revealing way, using calculations that automatically convert the data from the NHL API to the 3D perspective
+Showing NHL shot locations in a more appealing and revealing way, using calculations that automatically convert the data from the NHL API to the 3D perspective (see dashboard: https://public.tableau.com/profile/rj7974#!/vizhome/ShotsIn3D/Dashboard2)
 
 Example:
 
